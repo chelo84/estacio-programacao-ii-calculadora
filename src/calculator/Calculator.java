@@ -107,7 +107,7 @@ public class Calculator {
             case '/': return a.divide(b, 32, RoundingMode.HALF_UP);
             case '+': return a.add(b);
             case '-': return a.subtract(b);
-            case '%': return (a.multiply(b)).divide(new BigDecimal("100"), RoundingMode.HALF_UP).stripTrailingZeros();
+            case '%': return (a.multiply(b)).divide(new BigDecimal("100"), RoundingMode.HALF_UP);
             default: return BigDecimal.ZERO;
         }
     }
