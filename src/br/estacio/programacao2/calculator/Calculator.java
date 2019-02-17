@@ -1,10 +1,12 @@
-package calculator;
+package br.estacio.programacao2.calculator;
 
+import br.estacio.programacao2.history.History;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import br.estacio.programacao2.history.*;
 
 public class Calculator {
 
@@ -21,6 +23,8 @@ public class Calculator {
 
         Integer symbolId = nonNull(mathFunction) ? getSymbol(mathFunction) : null;
         Character operationChar = nonNull(symbolId) ? mathFunction.charAt(symbolId) : null;
+        
+        History.logOperation(mathFunction.toString());
 
         if (nonNull(symbolId)) {
             StringBuilder previous = getNumber(mathFunction, symbolId, PREVIOUS_NUMBER);
@@ -36,6 +40,8 @@ public class Calculator {
 
             return getResult(mathFunction);
         }
+        
+        History.log();
 
         return new BigDecimal(mathFunction.toString()).setScale(6, RoundingMode.HALF_UP).stripTrailingZeros().toPlainString();
     }
