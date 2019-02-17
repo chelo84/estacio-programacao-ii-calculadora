@@ -5,7 +5,7 @@
  */
 package br.estacio.programacao2;
 
-import calculator.Calculator;
+import br.estacio.programacao2.calculator.Calculator;
 
 /**
  *
